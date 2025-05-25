@@ -1,0 +1,287 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #1a1a2e;
+    color: white;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#gameContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+#loadingScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #1a1a2e, #16213e);
+}
+
+#loadingScreen h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #00ff41;
+    text-shadow: 0 0 20px #00ff41;
+}
+
+#loadingText {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333;
+    border-top: 5px solid #00ff41;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#gameScreen {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#gameHUD {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#playerInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+#emergencyButton {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #0a0a0a;
+}
+
+#mobileControls {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 100;
+}
+
+#joystick {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    touch-action: none;
+}
+
+#joystickKnob {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.1s ease;
+}
+
+#useButton, #reportButton {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-left: 10px;
+    touch-action: manipulation;
+}
+
+#reportButton {
+    background: #ff9800;
+}
+
+#meetingScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    z-index: 200;
+}
+
+#meetingScreen h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff4444;
+}
+
+#playerList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.player-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.player-card.selected {
+    border-color: #ff4444;
+}
+
+.player-card.dead {
+    opacity: 0.5;
+    background: rgba(255, 0, 0, 0.2);
+}
+
+#chatArea {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+#messages {
+    height: 150px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+#chatInput {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#sendMessage {
+    width: 70px;
+    padding: 10px;
+    margin-left: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#voteArea {
+    text-align: center;
+}
+
+#skipVote {
+    background: #666;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+#gameOverScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 300;
+}
+
+#gameOverScreen h1 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#playAgain {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    #gameHUD {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #mobileControls {
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+    }
+    
+    #joystick {
+        width: 100px;
+        height: 100px;
+    }
+    
+    #playerList {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+

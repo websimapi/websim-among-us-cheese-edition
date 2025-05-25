@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among Us: Cheese Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <div id="loadingScreen">
+            <h1>Among Us: Cheese Edition</h1>
+            <div id="loadingText">Generating spaceship map...</div>
+            <div class="loading-spinner"></div>
+        </div>
+        
+        <div id="gameScreen" style="display: none;">
+            <div id="gameHUD">
+                <div id="playerInfo">
+                    <span id="playerName">Player</span>
+                    <span id="playerRole">Crewmate</span>
+                </div>
+                <div id="taskCounter">Tasks: <span id="taskCount">0/5</span></div>
+                <button id="emergencyButton">Emergency Meeting</button>
+            </div>
+            
+            <canvas id="gameCanvas"></canvas>
+            
+            <div id="mobileControls">
+                <div id="joystick">
+                    <div id="joystickKnob"></div>
+                </div>
+                <button id="useButton">Use/Kill</button>
+                <button id="reportButton">Report</button>
+            </div>
+        </div>
+        
+        <div id="meetingScreen" style="display: none;">
+            <h2>Emergency Meeting</h2>
+            <div id="playerList"></div>
+            <div id="chatArea">
+                <div id="messages"></div>
+                <input type="text" id="chatInput" placeholder="Discuss who is suspicious...">
+                <button id="sendMessage">Send</button>
+            </div>
+            <div id="voteArea">
+                <button id="skipVote">Skip Vote</button>
+            </div>
+        </div>
+        
+        <div id="gameOverScreen" style="display: none;">
+            <h1 id="gameResult"></h1>
+            <button id="playAgain">Play Again</button>
+        </div>
+    </div>
+    
+    <script type="module" src="game.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
